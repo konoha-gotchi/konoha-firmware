@@ -107,6 +107,10 @@ void setup() {
 }
 
 void loop() {
+  if (sht31Address == 0) {
+    sht31Address = detectSht31Address();
+  }
+
   const int rawReading = analogRead(SOIL_MOISTURE_PIN);
   printSoilReading(rawReading);
 
